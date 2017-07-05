@@ -1,0 +1,81 @@
+/* ====================================
+ * Mixins
+ * ==================================== */
+
+
+/* Font mixin
+ * ==================================== */
+
+// variables-font-legacy
+// The exist to provide backwards compatibility for 
+// current things that use font variables. You should 
+// NOT be using these for new SCSS code.
+// legacy font weight vars
+// mixins-typography
+@mixin font-size ($font-size, $line-height) {
+    $new-size: ($font-size / 10);
+    $new-line-height: ($line-height / 10);
+    font-size: ($font-size + px);
+    font-size: ($new-size + rem);
+    line-height: ($line-height + px);
+    line-height: ($new-line-height + rem);
+}
+
+@mixin font-family ($font-name, $font-weight: $normal, $font-style: normal) {
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-family: $font-name;
+}
+
+// shorthand for font-size / line-height / font-family / font-weight
+@mixin font ($font-family, $font-size, $line-height, $font-weight: $normal, $font-style: normal) {
+    @include font-size($font-size, $line-height);
+    @include font-family($font-family, $font-weight, $font-style);
+}
+
+
+/* Layout mixin
+ * ==================================== */
+
+// runaround
+// usage: when text should run around a floated element
+@mixin runaround ($direction, $top, $right, $bottom, $left) {
+    float: $direction;
+    clear: $direction;
+    margin: ($top + px) ($right + px) ($bottom + px) ($left + px);
+}
+
+@mixin no-runaround {
+    float: none;
+    clear: none;
+    margin: 0;
+}
+
+
+/* === LongHT's mixin  === */
+
+// hover focus active mixin
+@mixin haf() {
+    &:hover,
+    &:focus,
+    &:active {
+        @content;
+    }
+}
+
+// transition
+@mixin transition($property, $duration, $function) {
+    transition-property: $property;
+    transition-duration: $duration + s;
+    transition-timing-function: $function;
+}
+
+// vertical last child 
+@mixin last-y() {
+    &:last-child,
+    &:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,167 @@
+/* ====================================
+   All region in project
+   ==================================== */
+
+
+/* zone global style */
+
+.zone {
+    margin-bottom: 20px;
+    > header {
+        .zone-title {
+            background-color: #f2f2f2;
+            @include font-size(18, 35);
+            padding: 0 10px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #d8d8d8;
+            cursor: pointer;
+            @include transition(background-color, 0.2, linear);
+            &:hover {
+                background-color: #ddd;
+                .icon-wrap {
+                    background-color: #ccc;
+                }
+            }
+            position: relative;
+            .icon-wrap {
+                padding: 0 15px;
+                border-left: 1px solid #fff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                @include transition(background-color, 0.2, linear);
+                [class*='sprites-'] {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+    }
+    // highlight talking box
+    &.talking-box {
+        .zone-title {
+            border-left: 3px solid $brand-primary;
+            border-bottom: none;
+        }
+    }
+    // hashtag box
+    &.hashtag-box {
+        .zone-title {
+            padding-left: 0;
+            border-bottom: none;
+            &::before {
+                content: '#';
+                display: inline-block;
+                color: white;
+                padding: 0 10px;
+                margin-right: 7px;
+                background-color: $brand-primary;
+                font-weight: normal;
+            }
+        }
+    }
+    // grid zone
+    &.slider-zone {
+        .zone-title {
+            border-left: 3px solid $brand-primary;
+            border-bottom: none;
+        }
+        .zone-content {
+            position: relative;
+            .bx-pager {
+                text-align: center;
+                .bx-pager-item {
+                    display: inline-block;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    height: 35px;
+                    a {
+                        display: block;
+                        text-indent: -9999em;
+                        width: 8px;
+                        height: 8px;
+                        margin-top: 13px;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                        border-radius: 50%;
+                        background-color: #d8d8d8;
+                        &.active {
+                            background-color: $brand-primary;
+                        }
+                    }
+                }
+            }
+            .slider-control {
+                .slider-control-btn {
+                    width: 35px;
+                    height: 35px;
+                    text-align: center;
+                    position: absolute;
+                    bottom: 0;
+                    background-color: #d8d8d8;
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        line-height: 35px;
+                    }
+                }
+                #home-slider-prev {
+                    left: 0;
+                }
+                #home-slider-next {
+                    right: 0;
+                }
+            }
+        }
+    }
+    // voting box
+    &.voting-box {
+        .question {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .action {
+            @include clearfix;
+            margin-top: 10px;
+            text-align: right;
+            .btn {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+// stories listing 
+.stories-listing {
+    li {
+        padding-top: 10px;
+        border-top: 1px solid #ddd;
+    }
+}
+
+.talking-list {
+    li {
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//ads style
+.qc {
+    @include clearfix;
+    margin-bottom: 20px;
+    clear: both;
+    &.qc-center {
+        text-align: center;
+    }
+}
